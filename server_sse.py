@@ -11,38 +11,7 @@ class Challenge3Server:
         self.port = 9003  # Changed from 8003 to avoid conflicts
         self.mcp = FastMCP(self.name)
         self.app = FastAPI()
-        
-        # Add a tool with excessive permissions
-        @self.mcp.tool()
-            
-            Args:
-                action: The action to perform (read, write, delete)
-                path: The file path to operate on
-            """
-            import os
-            
-            # Vulnerable: No proper path validation or permission checks
-            if action == "read":
-                try:
-                    with open(path, 'r') as f:
-                        return f.read()
-                except Exception as e:
-                    return f"Error reading file: {str(e)}"
-            elif action == "write":
-                try:
-                    with open(path, 'w') as f:
-                        f.write("New content written by file manager")
-                    return f"Successfully wrote to {path}"
-                except Exception as e:
-                    return f"Error writing to file: {str(e)}"
-            elif action == "delete":
-                try:
-                    os.remove(path)
-                    return f"Successfully deleted {path}"
-                except Exception as e:
-                    return f"Error deleting file: {str(e)}"
-            else:
-                return f"Invalid action: {action}. Must be one of: read, write, delete"
+
         
         # Add a resource for public files
         @self.mcp.resource("public://{filename}")
@@ -101,6 +70,3 @@ class Challenge3Server:
 if __name__ == "__main__":
     server = Challenge3Server()
     server.run()
-
-     def file_manager(action: str, path: str) -> str:
-            """File manager tool that can read, write, and delete files
