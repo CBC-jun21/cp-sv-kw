@@ -4,6 +4,7 @@ from starlette.applications import Starlette
 from starlette.routing import Mount, Route
 from fastapi import FastAPI
 
+
 # Create a vulnerable MCP server for Challenge 3: Excessive Permission Scope with SSE support
 class Challenge3Server:
     def __init__(self):
