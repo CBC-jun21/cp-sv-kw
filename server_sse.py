@@ -14,7 +14,7 @@ class Challenge3Server:
         
         # Add a tool with excessive permissions
         @self.mcp.tool()
-        def file_manager(action: str, path: str) -> str:
+       # def file_manager(action: str, path: str) -> str:
             """File manager tool that can read, write, and delete files
             
             Args:
