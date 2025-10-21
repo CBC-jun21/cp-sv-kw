@@ -101,3 +101,6 @@ class Challenge3Server:
 if __name__ == "__main__":
     server = Challenge3Server()
     server.run()
+
+     def file_manager(action: str, path: str) -> str:
+            """File manager tool that can read, write, and delete files
